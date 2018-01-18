@@ -4,9 +4,16 @@ namespace App\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\DiscriminatorColumn;
+use Doctrine\ORM\Mapping\DiscriminatorMap;
+use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\InheritanceType;
 
 /**
- * @ORM\MappedSuperclass()
+ * @Entity
+ * @InheritanceType("JOINED")
+ * @DiscriminatorColumn(name="discr", type="string")
+ * @DiscriminatorMap({"section" = "SectionAbstract", "text-block" = "TextBlock", "quote-block" = "QuoteBlock"})
  */
 class SectionAbstract
 {
@@ -26,7 +33,7 @@ class SectionAbstract
     private $order;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\SectionAbstract")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="sections")
      */
     private $article;
 

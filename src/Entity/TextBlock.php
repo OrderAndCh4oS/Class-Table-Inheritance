@@ -6,8 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="section")
+ * @ORM\Table(name="text_block")
  */
 class TextBlock extends SectionAbstract
 {

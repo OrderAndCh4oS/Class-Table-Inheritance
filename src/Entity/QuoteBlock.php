@@ -6,15 +6,14 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="section")
+ * @ORM\Table(name="quote_block")
  */
 class QuoteBlock extends SectionAbstract
 {
     /**
      * @ORM\Column(type="string")
      */
-    private $text;
+    private $quote;
 
     /**
      * @ORM\Column(type="string")
@@ -24,17 +23,17 @@ class QuoteBlock extends SectionAbstract
     /**
      * @return mixed
      */
-    public function getText()
+    public function getQuote()
     {
-        return $this->text;
+        return $this->quote;
     }
 
     /**
-     * @param mixed $text
+     * @param mixed $quote
      */
-    public function setText($text): void
+    public function setQuote($quote): void
     {
-        $this->text = $text;
+        $this->quote = $quote;
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,10 +26,17 @@ class Article
     private $title;
 
     /**
-     * @var
      * @ORM\OneToMany(targetEntity="App\Entity\SectionAbstract", mappedBy="article")
      */
     private $sections;
+
+    /**
+     * Article constructor.
+     */
+    public function __construct()
+    {
+        $this->sections = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -68,5 +76,9 @@ class Article
     public function setSections($sections): void
     {
         $this->sections = $sections;
+    }
+
+    public function __toString() {
+        return (string) $this->title;
     }
 }
