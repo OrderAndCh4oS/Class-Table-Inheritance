@@ -12,6 +12,14 @@ class TextBlockType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add(
+                'section',
+                SectionType::class,
+                [
+                    'data_class' => TextBlock::class,
+                    'label' => false, // Important!
+                ]
+            )
             ->add('text');
     }
 

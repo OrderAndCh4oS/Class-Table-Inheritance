@@ -10,6 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class QuoteBlock extends SectionAbstract
 {
+    const TYPE = 'quote_block';
+
     /**
      * @ORM\Column(type="string")
      */

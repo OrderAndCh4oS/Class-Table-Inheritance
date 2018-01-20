@@ -81,4 +81,9 @@ class Article
     public function __toString() {
         return (string) $this->title;
     }
+
+    public function addSection(SectionAbstract $section)
+    {
+        $this->sections->add($section);
+    }
 }

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ article.title }}</h1>
+    {% for section in article.sections %}
+        <div class="bb bw1 mb4">
+            <h2>{{ section.title }}</h2>
+            {% if section.type == 'quote_block' %}
+                <p class="quote">{{ section.quote }}</p>
+                <p><em>{{ section.citation }}</em></p>
+            {% elseif section.type == 'text_block' %}
+                <p>{{ section.text }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+    <a class="bg-black hover-bg-blue white pa2 no-underline"
+       href="{{ path('section_new', {'id': article.id, 'type': 'text-block'}) }}"
+    >Add Text Block</a>
+    <a class="bg-black hover-bg-blue white pa2 no-underline"
+       href="{{ path('section_new', {'id': article.id, 'type': 'quote-block'}) }}"
+    >Add Quote Block</a>
+{% endblock %}

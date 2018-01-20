@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class TextBlock extends SectionAbstract
 {
+    const TYPE = 'text_block';
 
     /**
      * @ORM\Column(type="string")

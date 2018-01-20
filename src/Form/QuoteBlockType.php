@@ -12,6 +12,13 @@ class QuoteBlockType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add(
+                'section',
+                SectionType::class,
+                [
+                    'label' => false,
+                ]
+            )
             ->add('quote')
             ->add('citation');
     }

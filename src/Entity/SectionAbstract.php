@@ -12,11 +12,13 @@ use Doctrine\ORM\Mapping\InheritanceType;
 /**
  * @Entity
  * @InheritanceType("JOINED")
- * @DiscriminatorColumn(name="discr", type="string")
- * @DiscriminatorMap({"section" = "SectionAbstract", "text-block" = "TextBlock", "quote-block" = "QuoteBlock"})
+ * @DiscriminatorColumn(name="section_type", type="string")
+ * @DiscriminatorMap({"text" = "App\Entity\TextBlock", "quote" = "App\Entity\QuoteBlock"})
  */
-class SectionAbstract
+abstract class SectionAbstract
 {
+    const TYPE = 'section';
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -30,7 +32,7 @@ class SectionAbstract
     /**
      * @ORM\Column(type="integer")
      */
-    private $order;
+    private $orderNumber;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="sections")
@@ -80,17 +82,24 @@ class SectionAbstract
     /**
      * @return mixed
      */
-    public function getOrder()
+    public function getOrderNumber()
     {
-        return $this->order;
+        return $this->orderNumber;
     }
 
     /**
-     * @param mixed $order
+     * @param mixed $orderNumber
      */
-    public function setOrder($order): void
+    public function setOrderNumber($orderNumber): void
     {
-        $this->order = $order;
+        $this->orderNumber = $orderNumber;
+    }
+
+    public static function getType()
+    {
+        $c = get_called_class();
+
+        return $c::TYPE;
     }
 
 }

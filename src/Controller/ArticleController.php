@@ -4,30 +4,39 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class ArticleController
  * @package App\Controller
  */
-class ArticleController extends Controller
+class ArticleController extends BaseController
 {
     /**
      * @Route("/article", name="article_index")
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index()
+    public function indexAction()
     {
-        $this->render('article/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $articleRepository = $em->getRepository('App:Article');
+        $articles = $articleRepository->findAll();
+
+        return $this->render('article/index.html.twig', compact('articles'));
     }
 
     /**
-     * @Route("/article/{id}", name="article_show")
+     * @Route("/article/show/{id}", name="article_show")
      * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function get($id)
+    public function getAction($id)
     {
-        $this->render('article/show.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $articleRepository = $em->getRepository('App:Article');
+        $article = $articleRepository->find($id);
+
+        return $this->render('article/show.html.twig', compact('article'));
     }
 
     /**
@@ -35,7 +44,7 @@ class ArticleController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function post(Request $request)
+    public function postAction(Request $request)
     {
         $article = new Article();
         $form = $this->createForm('App\Form\ArticleType', $article);
@@ -45,7 +54,7 @@ class ArticleController extends Controller
             $em->persist($article);
             $em->flush();
 
-            return $this->redirectToRoute('article_show', array('slug' => $poll->getSlug()));
+            return $this->redirectToRoute('article_show', array('id' => $article->getId()));
         }
 
         return $this->render(
@@ -54,5 +63,19 @@ class ArticleController extends Controller
                 'form' => $form->createView(),
             )
         );
+    }
+
+    /**
+     * @Route("article/{id}/sections/", name="section")
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function sectionsAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $articleRepository = $em->getRepository('App:Article');
+        $article = $articleRepository->find($id);
+
+        return $this->render('section/index.html.twig', compact('article'));
     }
 }
