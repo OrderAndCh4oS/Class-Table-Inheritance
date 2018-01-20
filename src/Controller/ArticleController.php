@@ -13,38 +13,38 @@ use Symfony\Component\HttpFoundation\Request;
 class ArticleController extends BaseController
 {
     /**
-     * @Route("/article", name="article_index")
+     * @Route("/admin/article", name="article_index")
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction()
+    public function adminListAction()
     {
         $em = $this->getDoctrine()->getManager();
         $articleRepository = $em->getRepository('App:Article');
         $articles = $articleRepository->findAll();
 
-        return $this->render('article/index.html.twig', compact('articles'));
+        return $this->render('admin/article/index.html.twig', compact('articles'));
     }
 
     /**
-     * @Route("/article/show/{id}", name="article_show")
+     * @Route("/admin/article/show/{id}", name="article_show")
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function getAction($id)
+    public function adminShowAction($id)
     {
         $em = $this->getDoctrine()->getManager();
         $articleRepository = $em->getRepository('App:Article');
         $article = $articleRepository->find($id);
 
-        return $this->render('article/show.html.twig', compact('article'));
+        return $this->render('admin/article/show.html.twig', compact('article'));
     }
 
     /**
-     * @Route("/article/new", name="article_new")
+     * @Route("/admin/article/new", name="article_new")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function postAction(Request $request)
+    public function adminNewAction(Request $request)
     {
         $article = new Article();
         $form = $this->createForm('App\Form\ArticleType', $article);
@@ -58,7 +58,7 @@ class ArticleController extends BaseController
         }
 
         return $this->render(
-            'article/new.html.twig',
+            'admin/article/new.html.twig',
             array(
                 'form' => $form->createView(),
             )
@@ -66,16 +66,24 @@ class ArticleController extends BaseController
     }
 
     /**
-     * @Route("article/{id}/sections/", name="section")
-     * @param $id
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/")
      */
-    public function sectionsAction($id)
+    public function publicListAction()
     {
         $em = $this->getDoctrine()->getManager();
         $articleRepository = $em->getRepository('App:Article');
-        $article = $articleRepository->find($id);
+        $articles = $articleRepository->findAll();
 
-        return $this->render('section/index.html.twig', compact('article'));
+        return $this->render('article/index.html.twig', compact('articles'));
+    }
+
+    /**
+     * @Route("/article/{article}")
+     * @param Article $article
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function publicShowAction(Article $article)
+    {
+        return $this->render('article/show.html.twig', compact('article'));
     }
 }

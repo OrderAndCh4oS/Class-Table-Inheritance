@@ -13,7 +13,7 @@ class QuoteBlock extends SectionAbstract
     const TYPE = 'quote_block';
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="text")
      */
     private $quote;
 

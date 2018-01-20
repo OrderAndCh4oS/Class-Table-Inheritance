@@ -9,15 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="article")
  */
-class Article
+class Article extends PageAbstract
 {
-    /**
-     * @var int $id
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
     /**
      * @var string $title
@@ -36,14 +29,6 @@ class Article
     public function __construct()
     {
         $this->sections = new ArrayCollection();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**

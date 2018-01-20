@@ -1,9 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{%- block title -%}{{ article.pageTitle }} | {{ parent() }}{% endblock %}
-
-{%- block meta_description -%}{{ article.metaDescription }}{% endblock %}
-
 {% block body %}
     <h1>{{ article.title }}</h1>
     {% for section in article.sections %}
@@ -17,4 +13,10 @@
             {% endif %}
         </div>
     {% endfor %}
+    <a class="bg-black hover-bg-blue white pa2 no-underline"
+       href="{{ path('section_new', {'id': article.id, 'type': 'text-block'}) }}"
+    >Add Text Block</a>
+    <a class="bg-black hover-bg-blue white pa2 no-underline"
+       href="{{ path('section_new', {'id': article.id, 'type': 'quote-block'}) }}"
+    >Add Quote Block</a>
 {% endblock %}

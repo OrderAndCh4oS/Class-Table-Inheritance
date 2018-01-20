@@ -1,8 +1,12 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
-    {# ToDo: Make this a page reference to enable updating meta #}
     <h1>Articles</h1>
+    <div class="bb bw1 pb4 mb4">
+        <a class="bg-black hover-bg-blue white pa2 no-underline"
+           href="{{ path('article_new') }}"
+        >Create Article</a>
+    </div>
     {% for article in articles %}
         <div class="bb bw1 pb4 mb4">
             <h2>{{ article.title }}</h2>

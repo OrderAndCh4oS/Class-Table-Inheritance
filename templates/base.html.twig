@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('build/main.css') }}">
     {% endblock %}

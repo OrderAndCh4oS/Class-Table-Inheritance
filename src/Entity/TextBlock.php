@@ -13,7 +13,7 @@ class TextBlock extends SectionAbstract
     const TYPE = 'text_block';
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="text")
      */
     private $text;
 

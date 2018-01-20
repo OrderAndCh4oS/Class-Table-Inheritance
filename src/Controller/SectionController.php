@@ -28,7 +28,7 @@ class SectionController extends BaseController
                 $form = $this->createForm('App\Form\TextBlockType', $section);
                 break;
             default:
-                return $this->render('article/show.html.twig', compact('id'));
+                return $this->redirectToRoute('article_show', array('id' => $id));
         }
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -44,7 +44,7 @@ class SectionController extends BaseController
         }
 
         return $this->render(
-            'section/new.html.twig',
+            'admin/section/new.html.twig',
             array(
                 'form' => $form->createView(),
             )
