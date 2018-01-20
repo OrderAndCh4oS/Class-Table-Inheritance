@@ -4,14 +4,14 @@
     <h1>Articles</h1>
     <div class="bb bw1 pb4 mb4">
         <a class="bg-black hover-bg-blue white pa2 no-underline"
-           href="{{ path('article_new') }}"
+           href="{{ path('admin_article_new') }}"
         >Create Article</a>
     </div>
     {% for article in articles %}
         <div class="bb bw1 pb4 mb4">
             <h2>{{ article.title }}</h2>
-            <a class="bg-black hover-bg-blue white pa2 no-underline"
-               href="{{ path('article_show', {'id': article.id}) }}"
+            <a class="bg-black hover-bg-blue white pa2 no-underline bn"
+               href="{{ path('admin_article_show', {'article': article.id}) }}"
             >View Article</a>
         </div>
     {% endfor %}

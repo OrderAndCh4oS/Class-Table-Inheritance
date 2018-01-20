@@ -17,4 +17,9 @@
             {% endif %}
         </div>
     {% endfor %}
+    <p>
+        <a class="bg-black hover-bg-blue white pa2 no-underline"
+           href="{{ path('article_list', {'article': article.id, 'type': 'text-block'}) }}"
+        >Article List</a>
+    </p>
 {% endblock %}

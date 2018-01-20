@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ArticleController extends BaseController
 {
     /**
-     * @Route("/admin/article", name="article_index")
+     * @Route("/admin/article", name="admin_article_list")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function adminListAction()
@@ -26,21 +26,17 @@ class ArticleController extends BaseController
     }
 
     /**
-     * @Route("/admin/article/show/{id}", name="article_show")
-     * @param $id
+     * @Route("/admin/article/show/{article}", name="admin_article_show")
+     * @param Article $article
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function adminShowAction($id)
+    public function adminShowAction(Article $article)
     {
-        $em = $this->getDoctrine()->getManager();
-        $articleRepository = $em->getRepository('App:Article');
-        $article = $articleRepository->find($id);
-
         return $this->render('admin/article/show.html.twig', compact('article'));
     }
 
     /**
-     * @Route("/admin/article/new", name="article_new")
+     * @Route("/admin/article/new", name="admin_article_new")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
@@ -66,7 +62,7 @@ class ArticleController extends BaseController
     }
 
     /**
-     * @Route("/")
+     * @Route("/", name="article_list")
      */
     public function publicListAction()
     {
@@ -78,7 +74,7 @@ class ArticleController extends BaseController
     }
 
     /**
-     * @Route("/article/{article}")
+     * @Route("/article/{article}", name="article_show")
      * @param Article $article
      * @return \Symfony\Component\HttpFoundation\Response
      */

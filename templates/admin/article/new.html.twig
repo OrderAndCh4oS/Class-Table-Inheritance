@@ -3,6 +3,13 @@
 {% block body %}
     {{ form_start(form) }}
     {{ form_widget(form) }}
-    <input type="submit" value="Create"/>
+    <input class="bg-black hover-bg-blue white pa2 no-underline bn pointer"
+           type="submit" value="Create"
+    />
     {{ form_end(form) }}
+    <p>
+        <a class="bg-black hover-bg-blue white pa2 no-underline"
+           href="{{ path('admin_article_list') }}"
+        >Article List</a>
+    </p>
 {% endblock %}

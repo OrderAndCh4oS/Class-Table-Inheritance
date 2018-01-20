@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Entity\QuoteBlock;
 use App\Entity\TextBlock;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -10,13 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 class SectionController extends BaseController
 {
     /**
-     * @Route("article/{id}/section/new/{type}", name="section_new")
+     * @Route("article/{article}/section/new/{type}", name="admin_section_new")
      * @param Request $request
-     * @param $id
+     * @param Article $article
      * @param $type
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function postAction(Request $request, $id, $type)
+    public function postAction(Request $request, Article $article, $type)
     {
         switch ($type) {
             case 'quote-block':
@@ -32,9 +33,6 @@ class SectionController extends BaseController
         }
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $articleRepository = $em->getRepository('App:Article');
-            $article = $articleRepository->find($id);
             $article->addSection($section);
             $section->setArticle($article);
             $em->persist($section);
