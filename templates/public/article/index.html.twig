@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {# ToDo: Make this a page reference to enable updating meta #}
+    <h1>{{ archive.title }} List</h1>
+    {% for article in articles %}
+        <div class="bb bw1 pb4 mb4">
+            <h2>{{ article.title }}</h2>
+            <a class="bg-black hover-bg-blue white pa2 no-underline"
+               href="{{ path('public_article_show', {'article': article.id}) }}"
+            >View Article</a>
+        </div>
+    {% endfor %}
+    <p>
+        <a class="bg-black hover-bg-blue white pa2 no-underline"
+           href="{{ path('public_archive_list') }}"
+        >Archive List</a>
+    </p>
+{% endblock %}

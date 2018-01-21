@@ -40,7 +40,7 @@ class ArticleController extends BaseController
             $em->persist($article);
             $em->flush();
 
-            return $this->redirectToRoute('article_show', array('article' => $article->getId()));
+            return $this->redirectToRoute('admin_article_show', array('article' => $article->getId()));
         }
         $form = $form->createView();
 
@@ -51,24 +51,26 @@ class ArticleController extends BaseController
     }
 
     /**
-     * @Route("/", name="article_list")
+     * @Route("/archive/{archive}", name="public_article_list")
+     * @param Archive $archive
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function publicListAction()
+    public function publicListAction(Archive $archive)
     {
         $em = $this->getDoctrine()->getManager();
         $articleRepository = $em->getRepository('App:Article');
-        $articles = $articleRepository->findAll();
+        $articles = $articleRepository->findBy(compact('archive'));
 
-        return $this->render('article/index.html.twig', compact('articles'));
+        return $this->render('public/article/index.html.twig', compact('articles', 'archive'));
     }
 
     /**
-     * @Route("/article/{article}", name="article_show")
+     * @Route("/article/{article}", name="public_article_show")
      * @param Article $article
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function publicShowAction(Article $article)
     {
-        return $this->render('article/show.html.twig', compact('article'));
+        return $this->render('public/article/show.html.twig', compact('article'));
     }
 }

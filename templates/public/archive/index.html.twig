@@ -2,13 +2,13 @@
 
 {% block body %}
     {# ToDo: Make this a page reference to enable updating meta #}
-    <h1>Articles</h1>
-    {% for article in articles %}
+    <h1>Archive List</h1>
+    {% for archive in archives %}
         <div class="bb bw1 pb4 mb4">
-            <h2>{{ article.title }}</h2>
+            <h2>{{ archive.title }}</h2>
             <a class="bg-black hover-bg-blue white pa2 no-underline"
-               href="{{ path('article_show', {'article': article.id}) }}"
-            >View Article</a>
+               href="{{ path('public_article_list', {'archive': archive.id}) }}"
+            >View Archive</a>
         </div>
     {% endfor %}
 {% endblock %}

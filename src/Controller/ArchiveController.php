@@ -57,4 +57,17 @@ class ArchiveController extends Controller
             )
         );
     }
+
+    /**
+     * @Route("/", name="public_archive_list")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function publicListAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $archiveRepository = $em->getRepository('App:Archive');
+        $archives = $archiveRepository->findBy(compact('archive'));
+
+        return $this->render('public/archive/index.html.twig', compact('archives', 'archive'));
+    }
 }

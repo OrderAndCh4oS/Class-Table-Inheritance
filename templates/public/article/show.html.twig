@@ -19,7 +19,7 @@
     {% endfor %}
     <p>
         <a class="bg-black hover-bg-blue white pa2 no-underline"
-           href="{{ path('article_list', {'article': article.id, 'type': 'text-block'}) }}"
-        >Article List</a>
+           href="{{ path('public_article_list', {'archive': article.archive.id}) }}"
+        >{{ article.archive.title }} List</a>
     </p>
 {% endblock %}
