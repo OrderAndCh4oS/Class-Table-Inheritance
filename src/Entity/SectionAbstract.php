@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping\DiscriminatorColumn;
 use Doctrine\ORM\Mapping\DiscriminatorMap;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\InheritanceType;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @Entity
@@ -26,11 +27,14 @@ abstract class SectionAbstract
      */
     private $id;
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="3", max="255")
      */
     private $title;
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
      */
     private $orderNumber;
 

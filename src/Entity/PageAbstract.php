@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\MappedSuperclass()
@@ -19,17 +20,23 @@ abstract class PageAbstract
 
     /**
      * @var string $title
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="3", max="255")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text", length=60)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="3", max="60")
      */
     private $pageTitle;
 
     /**
      * @ORM\Column(type="text", length=320)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="3", max="320")
      */
     private $metaDescription;
 

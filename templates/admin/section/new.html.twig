@@ -7,5 +7,10 @@
            type="submit" value="Create"
     />
     {{ form_end(form) }}
+    <p>
+        <a class="bg-black hover-bg-blue white pa2 no-underline dib"
+           href="{{ path('admin_article_show', {'article': article.id}) }}"
+        >View Article</a>
+    </p>
 {% endblock %}
 

@@ -48,6 +48,7 @@ class SectionController extends BaseController
         return $this->render(
             'admin/section/new.html.twig',
             array(
+                'article' => $article,
                 'form' => $form->createView(),
             )
         );
