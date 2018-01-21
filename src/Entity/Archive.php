@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Archive extends PageAbstract
 {
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="archive")
+     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="archive", cascade={"remove"})
      * @var ArrayCollection
      */
     private $articles;

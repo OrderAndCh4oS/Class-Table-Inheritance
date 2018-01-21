@@ -18,7 +18,7 @@ class Article extends PageAbstract
     private $archive;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\SectionAbstract", mappedBy="article")
+     * @ORM\OneToMany(targetEntity="App\Entity\SectionAbstract", mappedBy="article", cascade={"remove"})
      */
     private $sections;
 
