@@ -22,7 +22,7 @@
     </p>
     <p>
         <a class="bg-black hover-bg-blue white pa2 no-underline"
-           href="{{ path('admin_article_list') }}"
+           href="{{ path('admin_archive_show', {'archive': article.archive.id}) }}"
         >Article List</a>
     </p>
 {% endblock %}

@@ -29,16 +29,17 @@ class SectionController extends BaseController
                 $form = $this->createForm('App\Form\TextBlockType', $section);
                 break;
             default:
-                return $this->redirectToRoute('article_show', array('id' => $id));
+                return $this->redirectToRoute('admin_article_show', array('article' => $article->getId()));
         }
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
             $article->addSection($section);
             $section->setArticle($article);
             $em->persist($section);
             $em->flush();
 
-            return $this->redirectToRoute('article_show', array('id' => $article->getId()));
+            return $this->redirectToRoute('admin_article_show', array('article' => $article->getId()));
         }
 
         return $this->render(

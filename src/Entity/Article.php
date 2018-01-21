@@ -13,10 +13,9 @@ class Article extends PageAbstract
 {
 
     /**
-     * @var string $title
-     * @ORM\Column(type="string")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Archive", inversedBy="articles")
      */
-    private $title;
+    private $archive;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\SectionAbstract", mappedBy="article")
@@ -34,17 +33,17 @@ class Article extends PageAbstract
     /**
      * @return mixed
      */
-    public function getTitle()
+    public function getArchive()
     {
-        return $this->title;
+        return $this->archive;
     }
 
     /**
-     * @param mixed $title
+     * @param mixed $archive
      */
-    public function setTitle($title): void
+    public function setArchive($archive): void
     {
-        $this->title = $title;
+        $this->archive = $archive;
     }
 
     /**
@@ -63,10 +62,9 @@ class Article extends PageAbstract
         $this->sections = $sections;
     }
 
-    public function __toString() {
-        return (string) $this->title;
-    }
-
+    /**
+     * @param SectionAbstract $section
+     */
     public function addSection(SectionAbstract $section)
     {
         $this->sections->add($section);

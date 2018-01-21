@@ -18,6 +18,12 @@ abstract class PageAbstract
     private $id;
 
     /**
+     * @var string $title
+     * @ORM\Column(type="string")
+     */
+    private $title;
+
+    /**
      * @ORM\Column(type="text", length=60)
      */
     private $pageTitle;
@@ -36,6 +42,14 @@ abstract class PageAbstract
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updatedAt;
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string)$this->title;
+    }
 
     /**
      * @return mixed
@@ -107,6 +121,22 @@ abstract class PageAbstract
     public function setUpdatedAt(): void
     {
         $this->updatedAt = new \DateTime('now');
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
     }
 
 }
