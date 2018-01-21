@@ -98,7 +98,6 @@ class ArchiveController extends Controller
     {
         $form = $this->createDeleteForm($archive);
         $form->handleRequest($request);
-//        dump($form);die;
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($archive);

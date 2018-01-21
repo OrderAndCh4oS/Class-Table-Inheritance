@@ -3,7 +3,7 @@
 {% block body %}
     <h1>{{ article.title }}</h1>
     {% for section in article.sections %}
-        <div class="bb bw1 mb4">
+        <div class="bb bw1 mb4 pb4">
             <h2>{{ section.title }}</h2>
             {% if section.type == 'quote_block' %}
                 <p class="quote">{{ section.quote }}</p>
@@ -11,6 +11,9 @@
             {% elseif section.type == 'text_block' %}
                 <p>{{ section.text }}</p>
             {% endif %}
+            <a class="bg-black hover-bg-blue white pa2 no-underline dib bn"
+               href="{{ path('admin_section_edit', {'section': section.id}) }}"
+            >Edit Section</a>
         </div>
     {% endfor %}
     <div class="bb bw1 pb2 mb4">

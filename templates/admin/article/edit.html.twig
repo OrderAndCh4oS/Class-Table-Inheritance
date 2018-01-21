@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input class="bg-black hover-bg-blue white pa2 no-underline bn pointer"
+           type="submit" value="Update"
+    >
+    {{ form_end(form) }}
+    <div class="bb bw1 pb2 mb4">
+        <p>
+            {{ form_start(delete_form) }}
+            {{ form_widget(delete_form) }}
+            <input class="bg-black hover-bg-red white pa2 no-underline dib bn pointer"
+                   type="submit" value="Delete"
+            >
+            {{ form_end(delete_form) }}
+        </p>
+    </div>
+    <p>
+        <a class="bg-black hover-bg-blue white pa2 no-underline dib"
+           href="{{ path('admin_archive_show', {'archive': article.archive.id}) }}"
+        >Article List</a>
+    </p>
+{% endblock %}

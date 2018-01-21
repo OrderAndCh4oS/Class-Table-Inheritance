@@ -12,7 +12,9 @@
             <h2>{{ article.title }}</h2>
             <a class="bg-black hover-bg-blue white pa2 no-underline dib bn"
                href="{{ path('admin_article_show', {'article': article.id}) }}"
-            >View Article</a>
+            >View Article</a> <a class="bg-black hover-bg-blue white pa2 no-underline dib bn"
+                                 href="{{ path('admin_article_edit', {'article': article.id}) }}"
+            >Edit Article</a>
         </div>
     {% endfor %}
     <p>
