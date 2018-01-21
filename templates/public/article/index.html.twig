@@ -6,13 +6,13 @@
     {% for article in articles %}
         <div class="bb bw1 pb4 mb4">
             <h2>{{ article.title }}</h2>
-            <a class="bg-black hover-bg-blue white pa2 no-underline"
+            <a class="bg-black hover-bg-blue white pa2 no-underline dib"
                href="{{ path('public_article_show', {'article': article.id}) }}"
             >View Article</a>
         </div>
     {% endfor %}
     <p>
-        <a class="bg-black hover-bg-blue white pa2 no-underline"
+        <a class="bg-black hover-bg-blue white pa2 no-underline dib"
            href="{{ path('public_archive_list') }}"
         >Archive List</a>
     </p>

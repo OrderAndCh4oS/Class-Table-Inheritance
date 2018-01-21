@@ -13,15 +13,16 @@
             {% endif %}
         </div>
     {% endfor %}
-    <p><a class="bg-black hover-bg-blue white pa2 no-underline"
-          href="{{ path('admin_section_new', {'article': article.id, 'type': 'text-block'}) }}"
-    >Add Text Block</a>
-    <a class="bg-black hover-bg-blue white pa2 no-underline"
-       href="{{ path('admin_section_new', {'article': article.id, 'type': 'quote-block'}) }}"
-    >Add Quote Block</a>
-    </p>
+    <div class="bb bw1 pb2 mb4">
+        <p><a class="bg-black hover-bg-blue white pa2 no-underline dib"
+              href="{{ path('admin_section_new', {'article': article.id, 'type': 'text-block'}) }}"
+            >Add Text Block</a> <a class="bg-black hover-bg-blue white pa2 no-underline dib"
+                                   href="{{ path('admin_section_new', {'article': article.id, 'type': 'quote-block'}) }}"
+            >Add Quote Block</a>
+        </p>
+    </div>
     <p>
-        <a class="bg-black hover-bg-blue white pa2 no-underline"
+        <a class="bg-black hover-bg-blue white pa2 no-underline dib"
            href="{{ path('admin_archive_show', {'archive': article.archive.id}) }}"
         >Article List</a>
     </p>

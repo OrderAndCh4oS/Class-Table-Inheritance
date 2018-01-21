@@ -3,12 +3,12 @@
 {% block body %}
     {{ form_start(form) }}
     {{ form_widget(form) }}
-    <input class="bg-black hover-bg-blue white pa2 no-underline bn pointer"
+    <input class="bg-black hover-bg-blue white pa2 no-underline dib bn pointer"
            type="submit" value="Create"
     >
     {{ form_end(form) }}
     <p>
-        <a class="bg-black hover-bg-blue white pa2 no-underline"
+        <a class="bg-black hover-bg-blue white pa2 no-underline dib"
            href="{{ path('admin_archive_show', {'archive': archive.id}) }}"
         >Article List</a>
     </p>

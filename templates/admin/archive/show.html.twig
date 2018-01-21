@@ -3,17 +3,22 @@
 {% block body %}
     <h1>{{ archive.title }}</h1>
     <div class="bb bw1 pb4 mb4">
-        <a class="bg-black hover-bg-blue white pa2 no-underline"
+        <a class="bg-black hover-bg-blue white pa2 no-underline dib"
            href="{{ path('admin_article_new', {'archive': archive.id}) }}"
         >Create Article</a>
     </div>
     {% for article in archive.articles %}
         <div class="bb bw1 pb4 mb4">
             <h2>{{ article.title }}</h2>
-            <a class="bg-black hover-bg-blue white pa2 no-underline bn"
+            <a class="bg-black hover-bg-blue white pa2 no-underline dib bn"
                href="{{ path('admin_article_show', {'article': article.id}) }}"
             >View Article</a>
         </div>
     {% endfor %}
+    <p>
+        <a class="bg-black hover-bg-blue white pa2 no-underline dib"
+           href="{{ path('admin_archive_list') }}"
+        >Archive List</a>
+    </p>
 {% endblock %}
 

@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends BaseController
 {
     /**
-     * @Route("/admin/", name="home")
+     * @Route("/admin/", name="admin_dashboard")
      */
     public function index()
     {

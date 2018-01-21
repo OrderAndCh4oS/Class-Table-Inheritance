@@ -10,9 +10,14 @@
     {% for archive in archives %}
         <div class="bb bw1 pb4 mb4">
             <h2>{{ archive.title }}</h2>
-            <a class="bg-black hover-bg-blue white pa2 no-underline bn"
+            <a class="bg-black hover-bg-blue white pa2 no-underline dib bn"
                href="{{ path('admin_archive_show', {'archive': archive.id}) }}"
             >View Archive</a>
         </div>
     {% endfor %}
+    <p>
+        <a class="bg-black hover-bg-blue white pa2 no-underline dib"
+           href="{{ path('admin_dashboard') }}"
+        >Admin Dashboard</a>
+    </p>
 {% endblock %}
