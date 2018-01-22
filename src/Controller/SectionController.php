@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\ImageBlock;
 use App\Entity\QuoteBlock;
 use App\Entity\SectionAbstract;
 use App\Entity\TextBlock;
@@ -30,6 +31,10 @@ class SectionController extends BaseController
             case 'text-block':
                 $section = new TextBlock();
                 $form = $this->createForm('App\Form\TextBlockType', $section);
+                break;
+            case 'image-block':
+                $section = new ImageBlock();
+                $form = $this->createForm('App\Form\ImageBlockType', $section);
                 break;
             default:
                 return $this->redirectToRoute('admin_article_show', array('article' => $article->getId()));
@@ -69,6 +74,9 @@ class SectionController extends BaseController
                 break;
             case "text_block":
                 $form = $this->createForm('App\Form\TextBlockType', $section);
+                break;
+            case "image_block":
+                $form = $this->createForm('App\Form\ImageBlockType', $section);
                 break;
             default:
                 return new \ErrorException("Invalid Section Type");

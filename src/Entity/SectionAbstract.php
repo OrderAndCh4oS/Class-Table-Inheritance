@@ -14,7 +14,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @Entity
  * @InheritanceType("JOINED")
  * @DiscriminatorColumn(name="section_type", type="string")
- * @DiscriminatorMap({"text" = "App\Entity\TextBlock", "quote" = "App\Entity\QuoteBlock"})
+ * @DiscriminatorMap({
+ *     "text" = "App\Entity\TextBlock",
+ *     "quote" = "App\Entity\QuoteBlock",
+ *     "image" = "App\Entity\ImageBlock"
+ * })
  */
 abstract class SectionAbstract
 {

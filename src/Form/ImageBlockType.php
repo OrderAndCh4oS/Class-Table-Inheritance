@@ -2,12 +2,13 @@
 
 namespace App\Form;
 
-use App\Entity\QuoteBlock;
+use App\Entity\Image;
+use App\Entity\ImageBlock;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class QuoteBlockType extends AbstractType
+class ImageBlockType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -16,12 +17,17 @@ class QuoteBlockType extends AbstractType
                 'section',
                 SectionType::class,
                 [
-                    'data_class' => QuoteBlock::class,
                     'label' => false,
                 ]
             )
-            ->add('quote')
-            ->add('citation');
+            ->add(
+                'image',
+                ImageType::class,
+                [
+                    'data_class' => Image::class,
+                    'label' => false,
+                ]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -29,7 +35,7 @@ class QuoteBlockType extends AbstractType
         $resolver->setDefaults(
             [
                 // uncomment if you want to bind to a class
-                'data_class' => QuoteBlock::class,
+                'data_class' => ImageBlock::class,
             ]
         );
     }

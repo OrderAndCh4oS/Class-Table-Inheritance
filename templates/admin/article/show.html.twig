@@ -10,6 +10,11 @@
                 <p><em>{{ section.citation }}</em></p>
             {% elseif section.type == 'text_block' %}
                 <p>{{ section.text }}</p>
+            {% elseif section.type == 'image_block' %}
+                <figure class="ml0 mr0">
+                    <img src="{{ vich_uploader_asset(section.image, 'imageFile') }}" alt="{{ section.image.alt }}"/>
+                    <figcaption class="i pt1">{{ section.image.caption }}</figcaption>
+                </figure>
             {% endif %}
             <a class="bg-black hover-bg-blue white pa2 no-underline dib bn"
                href="{{ path('admin_section_edit', {'section': section.id}) }}"
@@ -21,7 +26,9 @@
               href="{{ path('admin_section_new', {'article': article.id, 'type': 'text-block'}) }}"
             >Add Text Block</a> <a class="bg-black hover-bg-blue white pa2 no-underline dib"
                                    href="{{ path('admin_section_new', {'article': article.id, 'type': 'quote-block'}) }}"
-            >Add Quote Block</a>
+            >Add Quote Block</a> <a class="bg-black hover-bg-blue white pa2 no-underline dib"
+                                    href="{{ path('admin_section_new', {'article': article.id, 'type': 'image-block'}) }}"
+            >Add Image Block</a>
         </p>
     </div>
     <p>
