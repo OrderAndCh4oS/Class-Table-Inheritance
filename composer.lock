@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "168744e789f1d0bfe3bb93a5a6c7d61c",
-    "content-hash": "c67b18e099f75b0325e401d0c69a28f0",
+    "hash": "6c4039f577c250929a7b9f6a03a1c83f",
+    "content-hash": "6e04271ff6379c8865eedb4d97f1ddbe",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.52.0",
+            "version": "3.52.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "1bc98d7f1f4b6ffb3c54d6a854d5ee5b7137e220"
+                "reference": "69ba4e07288a532fe7635f7cdd73cffa6509f538"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1bc98d7f1f4b6ffb3c54d6a854d5ee5b7137e220",
-                "reference": "1bc98d7f1f4b6ffb3c54d6a854d5ee5b7137e220",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/69ba4e07288a532fe7635f7cdd73cffa6509f538",
+                "reference": "69ba4e07288a532fe7635f7cdd73cffa6509f538",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +85,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-01-22 22:20:45"
+            "time": "2018-01-26 22:17:57"
         },
         {
             "name": "behat/transliterator",
@@ -1337,6 +1337,63 @@
             "time": "2017-03-20 17:10:46"
         },
         {
+            "name": "imagine/imagine",
+            "version": "v0.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avalanche123/Imagine.git",
+                "reference": "149041d2a1b517107bfe270ca2b1a17aa341715d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/149041d2a1b517107bfe270ca2b1a17aa341715d",
+                "reference": "149041d2a1b517107bfe270ca2b1a17aa341715d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "sami/sami": "dev-master"
+            },
+            "suggest": {
+                "ext-gd": "to use the GD implementation",
+                "ext-gmagick": "to use the Gmagick implementation",
+                "ext-imagick": "to use the Imagick implementation"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Imagine": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bulat Shakirzyanov",
+                    "email": "mallluhuct@gmail.com",
+                    "homepage": "http://avalanche123.com"
+                }
+            ],
+            "description": "Image processing for PHP 5.3",
+            "homepage": "http://imagine.readthedocs.org/",
+            "keywords": [
+                "drawing",
+                "graphics",
+                "image manipulation",
+                "image processing"
+            ],
+            "time": "2015-09-19 16:54:05"
+        },
+        {
             "name": "jdorn/sql-formatter",
             "version": "v1.2.17",
             "source": {
@@ -1439,16 +1496,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.41",
+            "version": "1.0.42",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "f400aa98912c561ba625ea4065031b7a41e5a155"
+                "reference": "09eabc54e199950041aef258a85847676496fe8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/f400aa98912c561ba625ea4065031b7a41e5a155",
-                "reference": "f400aa98912c561ba625ea4065031b7a41e5a155",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/09eabc54e199950041aef258a85847676496fe8e",
+                "reference": "09eabc54e199950041aef258a85847676496fe8e",
                 "shasum": ""
             },
             "require": {
@@ -1459,12 +1516,13 @@
             },
             "require-dev": {
                 "ext-fileinfo": "*",
-                "mockery/mockery": "~0.9",
-                "phpspec/phpspec": "^2.2",
-                "phpunit/phpunit": "~4.8"
+                "phpspec/phpspec": "^3.4",
+                "phpunit/phpunit": "^5.7"
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
+                "ext-ftp": "Allows you to use FTP server storage",
+                "ext-openssl": "Allows you to use FTPS server storage",
                 "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
                 "league/flysystem-aws-s3-v3": "Allows you to use S3 storage with AWS SDK v3",
                 "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
@@ -1518,7 +1576,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2017-08-06 17:41:04"
+            "time": "2018-01-27 16:03:56"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -1566,6 +1624,106 @@
             ],
             "description": "Flysystem adapter for the AWS S3 SDK v3.x",
             "time": "2017-06-30 06:29:25"
+        },
+        {
+            "name": "liip/imagine-bundle",
+            "version": "2.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liip/LiipImagineBundle.git",
+                "reference": "4eaf557e201ffa276c6315f6f752d588e4bdc65a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/4eaf557e201ffa276c6315f6f752d588e4bdc65a",
+                "reference": "4eaf557e201ffa276c6315f6f752d588e4bdc65a",
+                "shasum": ""
+            },
+            "require": {
+                "imagine/imagine": "^0.6.3,<0.7",
+                "php": "^7.1",
+                "symfony/asset": "^3.0|^4.0",
+                "symfony/filesystem": "^3.0|^4.0",
+                "symfony/finder": "^3.0|^4.0",
+                "symfony/framework-bundle": "^3.0|^4.0",
+                "symfony/options-resolver": "^3.0|^4.0",
+                "symfony/process": "^3.0|^4.0",
+                "symfony/templating": "^3.0|^4.0",
+                "symfony/translation": "^3.0|^4.0"
+            },
+            "require-dev": {
+                "amazonwebservices/aws-sdk-for-php": "^1.0",
+                "aws/aws-sdk-php": "^2.4",
+                "doctrine/cache": "^1.1",
+                "doctrine/orm": "^2.3",
+                "enqueue/enqueue-bundle": "^0.7|^0.8",
+                "ext-gd": "*",
+                "league/flysystem": "^1.0",
+                "psr/log": "^1.0",
+                "satooshi/php-coveralls": "^1.0",
+                "symfony/browser-kit": "^3.0|^4.0",
+                "symfony/console": "^3.0|^4.0",
+                "symfony/dependency-injection": "^3.0|^4.0",
+                "symfony/form": "^3.0|^4.0",
+                "symfony/phpunit-bridge": "^3.0|^4.0",
+                "symfony/validator": "^3.0|^4.0",
+                "symfony/yaml": "^3.0|^4.0",
+                "twig/twig": "^1.12|^2.0"
+            },
+            "suggest": {
+                "alcaeus/mongo-php-adapter": "required on PHP >= 7.0 to use mongo components with mongodb extension",
+                "amazonwebservices/aws-sdk-for-php": "required to use AWS version 1 cache resolver",
+                "aws/aws-sdk-php": "required to use AWS version 2/3 cache resolver",
+                "doctrine/mongodb-odm": "required to use mongodb-backed doctrine components",
+                "enqueue/enqueue-bundle": "^0.7 add if you like to process images in background",
+                "ext-exif": "required to read EXIF metadata from images",
+                "ext-gd": "required to use gd driver",
+                "ext-gmagick": "required to use gmagick driver",
+                "ext-imagick": "required to use imagick driver",
+                "ext-mongo": "required for mongodb components on PHP <7.0",
+                "ext-mongodb": "required for mongodb components on PHP >=7.0",
+                "league/flysystem": "required to use FlySystem data loader or cache resolver",
+                "monolog/monolog": "A psr/log compatible logger is required to enable logging",
+                "twig/twig": "required to use the provided Twig extension. Version 1.12 or greater needed"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.0": "1.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liip\\ImagineBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Liip and other contributors",
+                    "homepage": "https://github.com/liip/LiipImagineBundle/contributors"
+                }
+            ],
+            "description": "This bundle provides an image manipulation abstraction toolkit for Symfony-based projects.",
+            "homepage": "http://liip.ch",
+            "keywords": [
+                "bundle",
+                "image",
+                "imagine",
+                "liip",
+                "manipulation",
+                "photos",
+                "pictures",
+                "symfony",
+                "transformation"
+            ],
+            "time": "2018-01-20 10:48:38"
         },
         {
             "name": "monolog/monolog",
@@ -2983,24 +3141,24 @@
         },
         {
             "name": "symfony/flex",
-            "version": "v1.0.63",
+            "version": "v1.0.67",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "c409fe47e94c3c3c255e94356718ff15417afb0e"
+                "reference": "ac1c6aaafc4a9fddba3626867d786d151d2cc2ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/flex/zipball/c409fe47e94c3c3c255e94356718ff15417afb0e",
-                "reference": "c409fe47e94c3c3c255e94356718ff15417afb0e",
+                "url": "https://api.github.com/repos/symfony/flex/zipball/ac1c6aaafc4a9fddba3626867d786d151d2cc2ac",
+                "reference": "ac1c6aaafc4a9fddba3626867d786d151d2cc2ac",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.1",
+                "composer-plugin-api": "^1.0",
                 "php": "^7.0"
             },
             "require-dev": {
-                "composer/composer": "^1.4",
+                "composer/composer": "^1.0.2",
                 "symfony/phpunit-bridge": "^3.2.8"
             },
             "type": "composer-plugin",
@@ -3025,7 +3183,7 @@
                     "email": "fabien.potencier@gmail.com"
                 }
             ],
-            "time": "2018-01-17 19:45:47"
+            "time": "2018-01-25 06:46:31"
         },
         {
             "name": "symfony/form",
@@ -5463,6 +5621,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "liip/imagine-bundle": 20,
         "symfony/lts": 20
     },
     "prefer-stable": false,
