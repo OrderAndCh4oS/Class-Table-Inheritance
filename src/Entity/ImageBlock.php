@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity
@@ -20,7 +21,7 @@ class ImageBlock extends SectionAbstract
     /**
      * @return mixed
      */
-    public function getImage()
+    public function getImage(): ?Image
     {
         return $this->image;
     }
@@ -31,5 +32,10 @@ class ImageBlock extends SectionAbstract
     public function setImage(Image $image): void
     {
         $this->image = $image;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->image->getImageFile();
     }
 }
