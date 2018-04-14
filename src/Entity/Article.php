@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
@@ -19,6 +18,7 @@ class Article extends PageAbstract
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\SectionAbstract", mappedBy="article", cascade={"remove"})
+     * @ORM\OrderBy({"orderNumber" = "ASC"})
      */
     private $sections;
 

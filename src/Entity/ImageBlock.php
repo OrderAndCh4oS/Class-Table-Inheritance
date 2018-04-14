@@ -2,11 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity()
  * @ORM\Table(name="image_block")
  */
 class ImageBlock extends SectionAbstract
