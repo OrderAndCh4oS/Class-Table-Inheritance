@@ -2,9 +2,12 @@
 
 {% block body %}
     <h1>{{ article.title }}</h1>
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
     {% for section in article.sections %}
-        <div class="bb bw1 mb4 pb4">
+        <div class="bb bw1 mb4 pb2">
             <h2>{{ section.title }}</h2>
+            <p class="date">{{ article.createdAt | date('Y-m-d') }}</p>
             {% if section.type == 'quote_block' %}
                 <p class="quote">{{ section.quote }}</p>
                 <p><em>{{ section.citation }}</em></p>
@@ -16,10 +19,15 @@
                     <figcaption class="i pt1">{{ section.image.caption }}</figcaption>
                 </figure>
             {% endif %}
-            <p class="date">{{ article.createdAt | date('Y-m-d') }}</p>
-            <a class="bg-black hover-bg-blue white pa2 no-underline dib bn"
+            <a class="bg-black hover-bg-blue white pa2 mb3 no-underline dib bn"
                href="{{ path('admin_section_edit', {'section': section.id}) }}"
             >Edit Section</a>
+            <div class="pt3 pb0 mb4 b--dotted bl-0 br-0 bb-0 bw1">
+                {{ form_row(form.sections.children[loop.index0]) }}
+                <input class="bg-black hover-bg-blue white pa2 no-underline bn pointer"
+                       type="submit" value="Update Order"
+                >
+            </div>
         </div>
     {% endfor %}
     <div class="bb bw1 pb2 mb4">
@@ -32,6 +40,7 @@
             >Add Image Block</a>
         </p>
     </div>
+    {{ form_end(form) }}
     <p>
         <a class="bg-black hover-bg-blue white pa2 no-underline dib"
            href="{{ path('admin_archive_show', {'archive': article.archive.id}) }}"

@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-
 use App\Entity\Archive;
 use App\Entity\Article;
+use App\Form\ArticleSectionOrderCollectionType;
+use App\Form\ArticleSectionOrderType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,12 +19,24 @@ class ArticleController extends BaseController
 {
     /**
      * @Route("/admin/article/show/{article}", name="admin_article_show")
+     * @param Request $request
      * @param Article $article
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function adminShowAction(Article $article)
+    public function adminShowAction(Request $request, Article $article)
     {
-        return $this->render('admin/article/show.html.twig', compact('article'));
+        $form = $this->createForm(ArticleSectionOrderType::class, $article);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
+
+            return $this->redirectToRoute('admin_article_show', array('article' => $article->getId()));
+        }
+        $form = $form->createView();
+
+        return $this->render('admin/article/show.html.twig', compact('article', 'form'));
     }
 
     /**
