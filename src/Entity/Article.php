@@ -3,14 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity()
  * @ORM\Table(name="article")
  */
 class Article extends PageAbstract
 {
-
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Archive", inversedBy="articles")
      */

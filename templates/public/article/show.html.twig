@@ -9,6 +9,7 @@
     {% for section in article.sections %}
         <div class="bb bw1 mb4">
             <h2>{{ section.title }}</h2>
+            <p class="date">{{ article.createdAt | date('Y-m-d') }}</p>
             {% if section.type == 'quote_block' %}
                 <p class="quote">{{ section.quote }}</p>
                 <p><em>{{ section.citation }}</em></p>

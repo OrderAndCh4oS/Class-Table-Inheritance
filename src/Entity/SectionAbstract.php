@@ -47,20 +47,11 @@ abstract class SectionAbstract
      */
     private $article;
 
-    /**
-     * @return mixed
-     */
-    public function getArticle()
+    public static function getType()
     {
-        return $this->article;
-    }
+        $c = get_called_class();
 
-    /**
-     * @param mixed $article
-     */
-    public function setArticle($article): void
-    {
-        $this->article = $article;
+        return $c::TYPE;
     }
 
     /**
@@ -103,11 +94,19 @@ abstract class SectionAbstract
         $this->orderNumber = $orderNumber;
     }
 
-    public static function getType()
+    /**
+     * @return mixed
+     */
+    public function getArticle()
     {
-        $c = get_called_class();
-
-        return $c::TYPE;
+        return $this->article;
     }
 
+    /**
+     * @param mixed $article
+     */
+    public function setArticle($article): void
+    {
+        $this->article = $article;
+    }
 }

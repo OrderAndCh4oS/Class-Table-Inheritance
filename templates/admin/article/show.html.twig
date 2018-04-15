@@ -16,6 +16,7 @@
                     <figcaption class="i pt1">{{ section.image.caption }}</figcaption>
                 </figure>
             {% endif %}
+            <p class="date">{{ article.createdAt | date('Y-m-d') }}</p>
             <a class="bg-black hover-bg-blue white pa2 no-underline dib bn"
                href="{{ path('admin_section_edit', {'section': section.id}) }}"
             >Edit Section</a>

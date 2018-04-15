@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+
 use App\Entity\Archive;
 use App\Entity\Article;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class ArticleController

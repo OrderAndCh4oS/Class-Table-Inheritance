@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
@@ -13,6 +14,7 @@ class ImageBlock extends SectionAbstract
     const TYPE = 'image_block';
 
     /**
+     * @var Image
      * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
      */
     private $image;
