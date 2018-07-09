@@ -15,7 +15,7 @@ class ImageBlock extends SectionAbstract
 
     /**
      * @var Image
-     * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Image", inversedBy="section", cascade={"persist", "remove"}, fetch="EAGER")
      */
     private $image;
 

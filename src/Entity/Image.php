@@ -60,6 +60,11 @@ class Image
     private $updatedAt;
 
     /**
+     * @ORM\OneToOne(targetEntity="App\Entity\ImageBlock", mappedBy="image")
+     */
+    private $section;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -99,7 +104,6 @@ class Image
         $this->caption = $caption;
     }
 
-
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
      * of 'UploadedFile' is injected into this setter to trigger the  update. If this
@@ -112,7 +116,6 @@ class Image
     public function setImageFile(?File $image = null): void
     {
         $this->imageFile = $image;
-
         if (null !== $image) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
@@ -143,5 +146,21 @@ class Image
     public function getImageSize(): ?int
     {
         return $this->imageSize;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSection()
+    {
+        return $this->section;
+    }
+
+    /**
+     * @param mixed $section
+     */
+    public function setSection($section): void
+    {
+        $this->section = $section;
     }
 }

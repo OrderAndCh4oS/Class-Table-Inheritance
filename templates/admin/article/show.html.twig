@@ -15,7 +15,7 @@
                 <p>{{ section.text }}</p>
             {% elseif section.type == 'image_block' %}
                 <figure class="ml0 mr0">
-                    <img src="{{ vich_uploader_asset(section.image, 'imageFile') | imagine_filter('square_sml') }}" alt="{{ section.image.alt }}"/>
+                    <img src="{{ vich_uploader_asset(section.image, 'imageFile', 'App\\Entity\\Image') | imagine_filter('square_mid') }}" alt="{{ section.image.alt }}"/>
                     <figcaption class="i pt1">{{ section.image.caption }}</figcaption>
                 </figure>
             {% endif %}

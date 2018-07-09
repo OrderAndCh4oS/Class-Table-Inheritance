@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Image;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -29,7 +30,7 @@ class ImageType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                // 'data_class' => Image::class,
+                'data_class' => Image::class,
             ]
         );
     }
